@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
+    <link href='//fonts.googleapis.com/css?family=Hind' rel='stylesheet'>
+    <link href='//fonts.googleapis.com/css?family=Philosopher' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function showInfo(str) {
+          if (str=="") {
+            document.getElementById("o1").innerHTML="";
+            return;
+          }
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+              document.getElementById("o1").innerHTML=this.responseText;
+            }
+          }
+          xmlhttp.open("GET","getItems.php?q="+str,true);
+          xmlhttp.send();
+      }
+      function getData(str) {
+        if (str=="") {
+          document.getElementById("o2").innerHTML="";
+          return;
+        }
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+          if (this.readyState==4 && this.status==200) {
+            document.getElementById("o2").innerHTML=this.responseText;
+          }
+        }
+        xmlhttp.open("GET","getDetail.php?q="+str,true);
+        xmlhttp.send();
+    }
+    </script>
+  </head>
+
+  <body>
+      <div id="overlay" >
+        <div id="variationDisplay" class="panel panel-default">
+              <div id="o1">
+              </div>
+              <div id="o2">
+              </div>
+        </div>
+              <div id="closeBtn">
+                <button onclick="overlayOff()" type="button" class="btn btn-warning"> Close</button>
+            </div>
+        </div>
+      </div>
+
+    <nav id='nav_bar' class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div  class="container-fluid" id="myNavbar">
+        <ul  class="nav navbar-nav">
+          <li><a href="index.html">HOME</a></li>
+          <li  class="active"><a href="menu.html">MENU</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li id='selected'><a><img src="image/CopperMoon.png" style="width:100px;height:100px;"></a>  <li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class=menuHeader>
+      <div class=menuNav>
+        <nav id='menu_bar' class="navbar navbar-inverse" role="navigation">
+          <div  class="container-fluid" id="myNavbar2">
+            <ul class="nav navbar-nav">
+              <li><a href="#"><button type="button" class="btn btn-warning" id="btn1" data-target="coffee">COFFEE</button></a></li>
+              <li><a href="#"><button type="button" class="btn btn-warning" id="btn2" data-target="smoothie">SMOOTHIE</button></a></li>
+              <li><a href="#"><button type="button" class="btn btn-warning" id="btn3" data-target="tea">TEA</button></a></li>
+              <li><a href="#"><button type="button" class="btn btn-warning" id="btn4" data-target="ic">ICE CREAM</button></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+
+
+    <div id="content" class=menuMaster >
+      <div id="dummy">
+      </div>
+    </div>
+
+    <div id="coffee"  style="display: none;">
+      <div id="item1">
+        <div class="submenuTitle">
+          LATTE
+        </div>
+        <div class="submenuDescription">
+            Coffee drink made with espresso and steamed milk.
+        </div>
+
+        <div class="submenuPrice">
+          2.25 &nbsp; . &nbsp; 2.50 &nbsp; . &nbsp; 2.75
+        </div>
+        <div class="btnContainer">
+          <button id="0"class="btn btn-warning" onclick="overlayOn();showInfo(this.id);"> Variation</button>
+        </div>
+      </div>
+
+      <div id="item2">
+        <div class="submenuTitle">
+          MOCHA
+        </div>
+        <div class="submenuDescription">
+          Coffee with chocolate flavoring, including a simple mix of hot chocolate and coffee
+        </div>
+        <div class="submenuPrice">
+          2.25 &nbsp; . &nbsp; 2.50 &nbsp; . &nbsp; 2.75
+        </div>
+        <div class="btnContainer">
+          <button id="31"class="btn btn-warning" onclick="overlayOn();showInfo(this.id);"> Variation</button>
+        </div>
+      </div>
+
+      <div id="item3">
+        <div class="submenuTitle">
+          AMERICANO
+        </div>
+        <div class="submenuDescription">
+            Watered down form of a regular espresso.
+        </div>
+        <div class="submenuPrice">
+          2.25 &nbsp; . &nbsp; 2.50 &nbsp; . &nbsp; 2.75
+        </div>
+        <div class="btnContainer">
+          <button id="61"class="btn btn-warning" onclick="overlayOn();showInfo(this.id);"> Variation</button>
+        </div>
+      </div>
+
+      <div id="item4">
+        <div class="submenuTitle">
+          CAPPUCINO
+        </div>
+        <div class="submenuDescription">
+            Espresso with foam on top.
+        </div>
+        <div class="submenuPrice">
+          2.25 &nbsp; . &nbsp; 2.50 &nbsp; . &nbsp; 2.75
+        </div>
+        <div class="btnContainer">
+          <button id="181"class="btn btn-warning" onclick="overlayOn();showInfo(this.id);"> Variation</button>
+        </div>
+      </div>
+
+      <div id="item5">
+        <div class="submenuTitle">
+          MACCIATO
+        </div>
+        <div class="submenuDescription">
+            Coffee drink made with espresso and foamed milk.
+        </div>
+        <div class="submenuPrice">
+          2.25 &nbsp; . &nbsp; 2.50 &nbsp; . &nbsp; 2.75
+        </div>
+        <div class="btnContainer">
+          <button id="121"class="btn btn-warning" onclick="overlayOn();showInfo(this.id);"> Variation</button>
+        </div>
+      </div>
+
+      <div id="item6">
+        <div class="submenuTitle">
+          FRAPE
+        </div>
+        <div class="submenuDescription">
+            Coffee drink made with espresso and steamed milk.
+        </div>
+        <div class="submenuPrice">
+          2.25 &nbsp; . &nbsp; 2.50 &nbsp; . &nbsp; 2.75
+        </div>
+        <div class="btnContainer">
+          <button id="151"class="btn btn-warning" onclick="overlayOn();showInfo(this.id);"> Variation</button>
+        </div>
+    </div>
+
+    <div id="smoothie" style="display: none;">
+      <div id="smoothieHeader">
+        Mix and Match your favorite fresh fruits for the Ultimate Smoothie!!
+      </div>
+      <div id="item1">
+        <div class="submenuTitle">
+          STRAWBERRY
+        </div>
+        <div class="submenuDescription">
+          <img src="image/menufruit/strawberry.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+      <div id="item2">
+        <div class="submenuTitle">
+          KIWI
+        </div>
+        <div class="submenuDescription">
+            <img src="image/menufruit/kiwi.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+      <div id="item3">
+        <div class="submenuTitle">
+          BLACKBERRY
+        </div>
+        <div class="submenuDescription">
+          <img src="image/menufruit/blackberry.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+      <div id="item4">
+        <div class="submenuTitle">
+          PINEAPPLE
+        </div>
+        <div class="submenuDescription">
+          <img src="image/menufruit/pineapple.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+      <div id="item5">
+        <div class="submenuTitle">
+          BANANA
+        </div>
+        <div class="submenuDescription">
+            <img src="image/menufruit/banana.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+      <div id="item6">
+        <div class="submenuTitle">
+          APPLE
+        </div>
+        <div class="submenuDescription">
+          <img src="image/menufruit/apple.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+    </div>
+
+    <div id="tea" style="display: none;">
+      <div id="item1">
+        <div class="submenuTitle">
+          BLACK TEA
+        </div>
+        <div class="submenuDescription">
+            <img src="image/menufruit/blacktea.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+      <div id="item2">
+        <div class="submenuTitle">
+          CHAI TEA
+        </div>
+        <div class="submenuDescription">
+            <img src="image/menufruit/chaitea.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+      <div id="item3">
+        <div class="submenuTitle">
+            GREEN TEA
+        </div>
+        <div class="submenuDescription">
+            <img src="image/menufruit/greentea.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+    </div>
+
+    <div id="ic" style="display: none;">
+      <div id="item1">
+        <div class="submenuTitle">
+            ICE CREAM
+        </div>
+        <div class="submenuDescription">
+            <img src="image/menufruit/icecream.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+      <div id="item2">
+        <div class="submenuTitle">
+           MILK SHAKE
+        </div>
+        <div class="submenuDescription">
+            <img src="image/menufruit/milkshake.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+      <div id="item3">
+        <div class="submenuTitle">
+           AFFOGATO
+        </div>
+        <div class="submenuDescription">
+            <img src="image/menufruit/affogato.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="280">
+        </div>
+      </div>
+    </div>
+
+<script>
+
+let stateCheck = setInterval(() => {
+  if (document.readyState === 'complete') {
+    clearInterval(stateCheck);
+    // document ready
+    document.getElementById("btn1").click();
+  }
+}, 100);
+
+$('.btn').click(function() {
+  var LDiv = $('.menuMaster').children().first();
+  $(LDiv).empty();
+  var target = '#'+ $(this).data('target');
+  $(target).clone().appendTo($(LDiv));
+  $(target).show();
+  console.log("PRINTING : " +target);
+});
+
+
+// transparent overlay
+function overlayOn() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function overlayOff() {
+    document.getElementById("overlay").style.display = "none";
+}
+
+
+</script>
+
+    <div class="displayMenu">
+
+
+    </div>
+  </div>
+
+  <div class="footerMenu">
+    <div class="wrapper">
+      <div class="followUs">
+        <div class="followUsHeader">
+          CONNECT WITH US
+        </div>
+        <div  class="followUsText">
+          Connect with us on social media to stay up-to-date with the latest from The Copper Moon
+        </div>
+
+        <div class="temp" >
+          <ul class="socialList">
+            <li>
+              <a class="btn btn-social-icon btn-twitter"><span class="fa fa-twitter"></span></a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/thecoppermoon/" class="btn btn-social-icon btn-facebook"><span class="fa fa-facebook"></span> </a>
+            </li>
+            <li>
+              <a class="btn btn-social-icon btn-instagram"><span class="fa fa-instagram"></span> </a>
+            </li>
+            <li>
+              <a class="btn btn-social-icon btn-flickr"><span class="fa fa-flickr"></span> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contactUs">
+        <div class="contactUsHeader">
+          CONTACT US
+        </div>
+        <div  class="contactUsText">
+          1127 Euclid Ave,<br>Cleveland, OH 44115<br><br>Phone: (216) 296-9281
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</html>
