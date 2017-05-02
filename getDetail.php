@@ -21,7 +21,7 @@
 
   $conn = sqlsrv_connect($serverName, $connectionInfo);
 
-  $sql="SELECT * FROM masterdrinks, description WHERE DName='".$q."' AND DKey=MKey" ;
+  $sql="SELECT * FROM masterdrinks, Ddescription WHERE DName='".$q."' AND DKey=MKey" ;
   $result = mysqli_query($con,$sql) or die("Error in Selecting".mysqli_error($con));
   $row=mysqli_fetch_assoc($result);
   $description=$row['Description'];
