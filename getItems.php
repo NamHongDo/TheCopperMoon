@@ -14,14 +14,21 @@
   }
 
   // SQL Server Extension Sample Code:
-  $connectionInfo = array("UID" => "namdo@coppermoon", "pwd" => "Qu3nm4tr0i", "Database" => "thecoppermoon", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+  $connectionInfo = array(
+  "UID" => "namdo@coppermoon",
+   "pwd" => "Qu3nm4tr0i",
+   "Database" => "thecoppermoon",
+   "LoginTimeout" => 30, "Encrypt" => 1,
+   "TrustServerCertificate" => 0
+ );
+
   $serverName = "tcp:coppermoon.database.windows.net,1433";
 
   $conn = sqlsrv_connect($serverName, $connectionInfo);
   //$con = mysqli_connect("localhost","root","","thecoppermoon") or die("Error".mysqli_error($con));
-  $sql="SELECT DName FROM masterdrinks WHERE DKey >= '$q' AND DKey <= '$g'";
+  $sql="SELECT DName FROM masterdrinks WHERE DKey >= 0 AND DKey <= 30";
 
-  $result = mysqli_query($conn,$sql) or die("Error in Selecting".mysqli_error($conn));
+  $result = sqlsrv_query($conn,$sql) or die("Error in Selecting".mysqli_error($conn));
 
   $emparray = array();
 
