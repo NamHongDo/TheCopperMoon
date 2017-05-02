@@ -21,7 +21,7 @@
   //$con = mysqli_connect("localhost","root","","thecoppermoon") or die("Error".mysqli_error($con));
   $sql="SELECT DName FROM masterdrinks WHERE DKey >= '$q' AND DKey <= '$g'";
 
-  $result = mysqli_query($con,$sql) or die("Error in Selecting".mysqli_error($con));
+  $result = mysqli_query($conn,$sql) or die("Error in Selecting".mysqli_error($conn));
 
   $emparray = array();
 
@@ -30,7 +30,7 @@
       echo "<a href=# onclick=getData(this.innerHTML);>" .$row['DName']. "</a>";
     //   echo "<br>";
   }
-  mysqli_close($con);
+  mysqli_close($conn);
   ?>
   </body>
 </html>

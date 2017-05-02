@@ -22,12 +22,12 @@
   $conn = sqlsrv_connect($serverName, $connectionInfo);
 
   $sql="SELECT * FROM masterdrinks, Ddescription WHERE DName='".$q."' AND DKey=MKey" ;
-  $result = mysqli_query($con,$sql) or die("Error in Selecting".mysqli_error($con));
+  $result = mysqli_query($conn,$sql) or die("Error in Selecting".mysqli_error($conn));
   $row=mysqli_fetch_assoc($result);
   $description=$row['Description'];
 
   $sql="SELECT * FROM masterdrinks, price WHERE DName='".$q."' AND DKey=PKey" ;
-  $result = mysqli_query($con,$sql) or die("Error in Selecting".mysqli_error($con));
+  $result = mysqli_query($conn,$sql) or die("Error in Selecting".mysqli_error($conn));
 
   $priceArray = array();
   while($row=mysqli_fetch_assoc($result))
@@ -45,7 +45,7 @@
   echo "<br>";
   echo "<div class='smlPrice'>".$priceArray[0]. "&nbsp;&nbsp;.&nbsp;&nbsp;".$priceArray[1]."&nbsp;&nbsp;.&nbsp;&nbsp;".$priceArray[2]."</div>";
 
-  mysqli_close($con);
+  mysqli_close($conn);
   ?>
   </body>
 </html>
