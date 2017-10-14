@@ -1,4 +1,0 @@
-ALTER TABLE Price
-    ADD CONSTRAINT DK_PK
-    FOREIGN KEY (Pkey)
-    REFERENCES masterdrinks(DKey);
